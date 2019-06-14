@@ -1,0 +1,12 @@
+{
+  "products": [
+    {
+      "cod": 1,
+      "description": "Mug"
+    },
+    {
+      "cod": 2,
+      "description": "book"
+    }
+  ]
+}
