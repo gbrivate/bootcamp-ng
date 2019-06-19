@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 
 import {HttpClient} from '@angular/common/http';
@@ -44,7 +44,7 @@ export class GithubComponent implements OnInit {
 
   gitUser: GitUser;
 
-  profilePic: any;
+  profilePic: SafeUrl;
 
   loading: boolean;
 
