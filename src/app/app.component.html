@@ -1,14 +1,12 @@
-
 <div>{{title}}</div>
 
-<br>
-<button (click)="handleProductList(true)">Show products</button>
-<button (click)="handleProductList(false)">Hide products</button>
-<br>
 
-<app-product-list *ngIf="isProductList"></app-product-list>
-
+<h3>
+  <a [routerLink]="['/git','gituser']"> Git </a> -
+  <a [routerLink]="['/products']"> Products </a>
+</h3>
 
 <br>
 
-<app-github></app-github>
+<router-outlet></router-outlet>
+

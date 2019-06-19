@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
@@ -50,7 +51,8 @@ export class GithubComponent implements OnInit {
   listRepo: any[];
 
   constructor(private httpClient: HttpClient,
-              private domSanitizer: DomSanitizer) {
+              private domSanitizer: DomSanitizer,
+              private route: ActivatedRoute) {
     this.gitUser = <GitUser> {
       avatar_url: '',
       company: '',
@@ -63,6 +65,14 @@ export class GithubComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let param = '';
+    this.route.paramMap.subscribe(params => {
+      param = params.get('gituser');
+      if (param) {
+        this.gitUser.name = param;
+        this.loadGitUser();
+      }
+    });
   }
 
   loadGitUser(): void {
