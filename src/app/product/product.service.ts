@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   retrieveProducts(): Observable<Product[]> {
-    return this.httpClient.get('/api/products.json')
+    return this.httpClient.get('/assets/products.json')
       .pipe(
         map((data: any) => {
           return data.products.filter(p => p.active === 1);
