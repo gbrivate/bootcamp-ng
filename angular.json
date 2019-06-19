@@ -21,7 +21,12 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "src/data",
+                "output": "/api"
+              }
             ],
             "styles": [
               "src/styles.css"

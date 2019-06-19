@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-part-one',
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'demo';
+  title: string;
+
+  isProductList: boolean;
+
+  constructor() {
+    this.title = 'Hello';
+    this.isProductList = false;
+  }
+
+  handleProductList(value): void {
+    this.isProductList = value;
+  }
+
 }
