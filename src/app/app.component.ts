@@ -1,13 +1,11 @@
 import {Component} from '@angular/core';
 
-
 @Component({
   selector: 'app-part-one',
   templateUrl: './app.component.html'
 })
 export class AppComponent {
   title: string;
-
   isProductList: boolean;
 
   constructor() {

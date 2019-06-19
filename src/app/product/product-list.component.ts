@@ -1,12 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 
-import {HttpClient} from '@angular/common/http';
-import {map, delay} from 'rxjs/operators';
-
-interface Product {
-  cod: number;
-  description: string;
-}
+import {ProductService, Product} from './product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -19,24 +13,18 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   sub: any;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private productService: ProductService) {
     this.listProducts = [];
     this.title = '';
   }
 
   ngOnInit(): void {
-
     this.title = 'Hello lads!!!';
-
     this.listProducts = [];
-    this.sub = this.httpClient.get('/api/products.json')
-      .pipe(
-        delay(2000),
-        map((data: any) => {
-          this.listProducts = data.products;
-        })
-      ).subscribe();
-
+    this.sub = this.productService.retrieveProducts()
+      .subscribe(products  => {
+        this.listProducts = products;
+      });
   }
 
   ngOnDestroy(): void {
