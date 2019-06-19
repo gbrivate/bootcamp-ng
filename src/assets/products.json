@@ -2,11 +2,13 @@
   "products": [
     {
       "cod": 1,
-      "description": "Mug"
+      "description": "Mug",
+      "active" : 0
     },
     {
       "cod": 2,
-      "description": "book"
+      "description": "book",
+      "active" : 1
     }
   ]
 }
